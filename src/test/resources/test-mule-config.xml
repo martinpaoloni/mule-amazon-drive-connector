@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:amazon-drive="http://www.mulesoft.org/schema/mule/amazon-drive"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/amazon-drive http://www.mulesoft.org/schema/mule/amazon-drive/current/mule-amazon-drive.xsd">
+
+    <amazon-drive:config name="config" configId="configId">
+        <amazon-drive:connection requiredParameter="aValue" />
+    </amazon-drive:config>
+
+    <flow name="sayHiFlow">
+        <amazon-drive:say-hi person="Martin Paoloni"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <amazon-drive:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
